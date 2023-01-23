@@ -5,6 +5,8 @@ import (
 )
 
 func main() {
+
+	//es.2
 	//fmt.Println("Starting to make a coffee")
 	//fmt.Println("Grinding coffee beans")
 	//fmt.Println("Boiling water")
@@ -60,6 +62,7 @@ func main() {
 		fmt.Printf("No, I can make only %d cups of coffee\n", possibleCoffees)
 	}
 
+	//es.1
 	//fmt.Println("For", numCoffee, "cups of coffee you will need:")
 	//fmt.Println(water*numCoffee, "ml of water")
 	//fmt.Println(milk*numCoffee, "ml of milk")
