@@ -72,7 +72,7 @@ func main() {
 		cupsSupply = cupsSupply + c
 		stats()
 	case "take":
-		fmt.Println("I gave you", moneySupply)
+		fmt.Println("I gave you", moneySupply, "$")
 		moneySupply = 0
 		stats()
 	default:
