@@ -26,32 +26,58 @@ func remaining() {
 
 func buy() {
 
-	fmt.Println("What do you want to buy? 1 - espresso, 2 - latte, 3 - cappuccino:")
-	var productCode int
+	fmt.Println("What do you want to buy? 1 - espresso, 2 - latte, 3 - cappuccino, back - to main menu:")
+	var productCode string
 	fmt.Scan(&productCode)
 
-	if productCode == 1 {
+	if productCode == "1" && waterSupply >= 250 && coffeeSupply >= 16 && cupsSupply >= 1 {
 		waterSupply -= 250
 		coffeeSupply -= 16
 		cupsSupply--
 		moneySupply += 4
 		fmt.Println("I have enough resources, making you a coffee!")
-	} else if productCode == 2 {
+	} else if productCode == "2" && waterSupply >= 350 && milkSupply >= 75 && coffeeSupply >= 20 && cupsSupply >= 1 {
 		waterSupply -= 350
 		milkSupply -= 75
 		coffeeSupply -= 20
 		cupsSupply--
 		moneySupply += 7
 		fmt.Println("I have enough resources, making you a coffee!")
-	} else if productCode == 3 {
+	} else if productCode == "3" && waterSupply >= 200 && milkSupply >= 100 && coffeeSupply >= 12 && cupsSupply >= 1 {
 		waterSupply -= 200
 		milkSupply -= 100
 		coffeeSupply -= 12
 		cupsSupply--
 		moneySupply += 6
 		fmt.Println("I have enough resources, making you a coffee!")
-	} else {
-		fmt.Println("Please press 1, 2 or 3")
+
+	} else if productCode == "1" && waterSupply < 250 {
+		fmt.Println("Sorry, not enough water!")
+	} else if productCode == "1" && coffeeSupply < 16 {
+		fmt.Println("Sorry, not enough coffee!")
+	} else if productCode == "1" && cupsSupply < 1 {
+		fmt.Println("Sorry, not enough cups!")
+
+	} else if productCode == "2" && waterSupply < 350 {
+		fmt.Println("Sorry, not enough water!")
+	} else if productCode == "2" && milkSupply < 75 {
+		fmt.Println("Sorry, not enough milk!")
+	} else if productCode == "2" && coffeeSupply < 20 {
+		fmt.Println("Sorry, not enough coffee!")
+	} else if productCode == "2" && cupsSupply < 1 {
+		fmt.Println("Sorry, not enough cups!")
+
+	} else if productCode == "2" && waterSupply < 200 {
+		fmt.Println("Sorry, not enough water!")
+	} else if productCode == "2" && milkSupply < 100 {
+		fmt.Println("Sorry, not enough milk!")
+	} else if productCode == "2" && coffeeSupply < 12 {
+		fmt.Println("Sorry, not enough coffee!")
+	} else if productCode == "2" && cupsSupply < 1 {
+		fmt.Println("Sorry, not enough cups!")
+
+	} else if productCode == "back" {
+
 	}
 }
 
