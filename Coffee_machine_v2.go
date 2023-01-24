@@ -24,60 +24,48 @@ func remaining() {
 	fmt.Println("$", moneySupply, "of money")
 }
 
+func checkResources(w int, m int, b int, c int) bool {
+	if w > waterSupply {
+		fmt.Println("Sorry, not enough water!")
+		return false
+	} else if m > milkSupply {
+		fmt.Println("Sorry, not enough milk!")
+		return false
+	} else if b > coffeeSupply {
+		fmt.Println("Sorry, not enough coffee beans!")
+		return false
+	} else if c > cupsSupply {
+		fmt.Println("Sorry, not enough disposable cups!")
+		return false
+	}
+
+	fmt.Println("I have enough resources, making you a coffee!")
+	return true
+}
+
 func buy() {
 
 	fmt.Println("What do you want to buy? 1 - espresso, 2 - latte, 3 - cappuccino, back - to main menu:")
 	var productCode string
 	fmt.Scan(&productCode)
 
-	if productCode == "1" && waterSupply >= 250 && coffeeSupply >= 16 && cupsSupply >= 1 {
+	if productCode == "1" && checkResources(250, 0, 16, 1) {
 		waterSupply -= 250
 		coffeeSupply -= 16
 		cupsSupply--
 		moneySupply += 4
-		fmt.Println("I have enough resources, making you a coffee!")
-	} else if productCode == "2" && waterSupply >= 350 && milkSupply >= 75 && coffeeSupply >= 20 && cupsSupply >= 1 {
+	} else if productCode == "2" && checkResources(350, 75, 20, 1) {
 		waterSupply -= 350
 		milkSupply -= 75
 		coffeeSupply -= 20
 		cupsSupply--
 		moneySupply += 7
-		fmt.Println("I have enough resources, making you a coffee!")
-	} else if productCode == "3" && waterSupply >= 200 && milkSupply >= 100 && coffeeSupply >= 12 && cupsSupply >= 1 {
+	} else if productCode == "3" && checkResources(200, 100, 12, 1) {
 		waterSupply -= 200
 		milkSupply -= 100
 		coffeeSupply -= 12
 		cupsSupply--
 		moneySupply += 6
-		fmt.Println("I have enough resources, making you a coffee!")
-
-	} else if productCode == "1" && waterSupply < 250 {
-		fmt.Println("Sorry, not enough water!")
-	} else if productCode == "1" && coffeeSupply < 16 {
-		fmt.Println("Sorry, not enough coffee!")
-	} else if productCode == "1" && cupsSupply < 1 {
-		fmt.Println("Sorry, not enough cups!")
-
-	} else if productCode == "2" && waterSupply < 350 {
-		fmt.Println("Sorry, not enough water!")
-	} else if productCode == "2" && milkSupply < 75 {
-		fmt.Println("Sorry, not enough milk!")
-	} else if productCode == "2" && coffeeSupply < 20 {
-		fmt.Println("Sorry, not enough coffee!")
-	} else if productCode == "2" && cupsSupply < 1 {
-		fmt.Println("Sorry, not enough cups!")
-
-	} else if productCode == "2" && waterSupply < 200 {
-		fmt.Println("Sorry, not enough water!")
-	} else if productCode == "2" && milkSupply < 100 {
-		fmt.Println("Sorry, not enough milk!")
-	} else if productCode == "2" && coffeeSupply < 12 {
-		fmt.Println("Sorry, not enough coffee!")
-	} else if productCode == "2" && cupsSupply < 1 {
-		fmt.Println("Sorry, not enough cups!")
-
-	} else if productCode == "back" {
-
 	}
 }
 
