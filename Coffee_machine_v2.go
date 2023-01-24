@@ -35,6 +35,8 @@ func buy(cod int) {
 		coffeeSupply = coffeeSupply - 12
 		cupsSupply--
 		moneySupply = moneySupply + 6
+	} else {
+		fmt.Println("Wrong number")
 	}
 }
 
