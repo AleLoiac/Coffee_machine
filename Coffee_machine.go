@@ -28,13 +28,6 @@ var coffeeSupply int = 120
 var cupsSupply int = 9
 var moneySupply int = 550
 
-/*func askAction() string {
-	fmt.Println("Write action (buy, fill, take, remaining, exit):")
-	var action string
-	fmt.Scan(&action)
-	return action
-}*/
-
 func remaining() {
 	fmt.Println("The coffee machine has:")
 	fmt.Println(waterSupply, "ml of water")
@@ -151,7 +144,14 @@ func main() {
 	}
 }
 
-/*func main() {
+/*func askAction() string {
+	fmt.Println("Write action (buy, fill, take, remaining, exit):")
+	var action string
+	fmt.Scan(&action)
+	return action
+}
+
+func main() {
 
 Loop:
 	for {
