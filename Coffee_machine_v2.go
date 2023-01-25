@@ -89,7 +89,15 @@ func main() {
 
 Loop:
 	for {
-		switch askAction() {
+
+		action := askAction()
+
+		if action != "remaining" && action != "buy" && action != "fill" && action != "take" && action != "exit" {
+			fmt.Println("Invalid action, please try again")
+			continue
+		}
+
+		switch action {
 		case "remaining":
 			remaining()
 		case "buy":
