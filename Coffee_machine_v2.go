@@ -2,6 +2,26 @@ package main
 
 import "fmt"
 
+const (
+	espressoWater = 250
+	espressoMilk  = 0
+	espressoBeans = 16
+	espressoCups  = 1
+	espressoPrice = 4
+
+	latteWater = 350
+	latteMilk  = 75
+	latteBeans = 20
+	latteCups  = 1
+	lattePrice = 7
+
+	cappuccinoWater = 200
+	cappuccinoMilk  = 100
+	cappuccinoBeans = 12
+	cappuccinoCups  = 1
+	cappuccinoPrice = 6
+)
+
 var waterSupply int = 400
 var milkSupply int = 540
 var coffeeSupply int = 120
@@ -57,12 +77,15 @@ func buy() {
 	var productCode string
 	fmt.Scan(&productCode)
 
-	if productCode == "1" && checkResources(250, 0, 16, 1) {
-		updateResources(250, 0, 16, 1, 4)
-	} else if productCode == "2" && checkResources(350, 75, 20, 1) {
-		updateResources(350, 75, 20, 1, 7)
-	} else if productCode == "3" && checkResources(200, 100, 12, 1) {
-		updateResources(200, 100, 12, 1, 6)
+	if productCode != "1" && productCode != "2" && productCode != "3" && productCode != "back" {
+		fmt.Println("Invalid , please try again")
+
+	} else if productCode == "1" && checkResources(espressoWater, espressoMilk, espressoBeans, espressoCups) {
+		updateResources(espressoWater, espressoMilk, espressoBeans, espressoCups, espressoPrice)
+	} else if productCode == "2" && checkResources(latteWater, latteMilk, latteBeans, latteCups) {
+		updateResources(latteWater, latteMilk, latteBeans, latteCups, lattePrice)
+	} else if productCode == "3" && checkResources(cappuccinoWater, cappuccinoMilk, cappuccinoBeans, cappuccinoCups) {
+		updateResources(cappuccinoWater, cappuccinoMilk, cappuccinoBeans, cappuccinoCups, cappuccinoPrice)
 	}
 }
 
