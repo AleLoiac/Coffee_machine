@@ -72,20 +72,27 @@ func updateResources(water int, milk int, coffee int, cups int, money int) {
 }
 
 func buy() {
-
 	fmt.Println("What do you want to buy? 1 - espresso, 2 - latte, 3 - cappuccino, back - to main menu:")
 	var productCode string
 	fmt.Scan(&productCode)
 
-	if productCode != "1" && productCode != "2" && productCode != "3" && productCode != "back" {
-		fmt.Println("Invalid , please try again")
-
-	} else if productCode == "1" && checkResources(espressoWater, espressoMilk, espressoBeans, espressoCups) {
-		updateResources(espressoWater, espressoMilk, espressoBeans, espressoCups, espressoPrice)
-	} else if productCode == "2" && checkResources(latteWater, latteMilk, latteBeans, latteCups) {
-		updateResources(latteWater, latteMilk, latteBeans, latteCups, lattePrice)
-	} else if productCode == "3" && checkResources(cappuccinoWater, cappuccinoMilk, cappuccinoBeans, cappuccinoCups) {
-		updateResources(cappuccinoWater, cappuccinoMilk, cappuccinoBeans, cappuccinoCups, cappuccinoPrice)
+	switch productCode {
+	case "1":
+		if checkResources(espressoWater, espressoMilk, espressoBeans, espressoCups) {
+			updateResources(espressoWater, espressoMilk, espressoBeans, espressoCups, espressoPrice)
+		}
+	case "2":
+		if checkResources(latteWater, latteMilk, latteBeans, latteCups) {
+			updateResources(latteWater, latteMilk, latteBeans, latteCups, lattePrice)
+		}
+	case "3":
+		if checkResources(cappuccinoWater, cappuccinoMilk, cappuccinoBeans, cappuccinoCups) {
+			updateResources(cappuccinoWater, cappuccinoMilk, cappuccinoBeans, cappuccinoCups, cappuccinoPrice)
+		}
+	case "back":
+		break
+	default:
+		fmt.Println("Invalid choice, please try again")
 	}
 }
 
