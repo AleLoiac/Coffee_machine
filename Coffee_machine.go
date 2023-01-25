@@ -28,12 +28,12 @@ var coffeeSupply int = 120
 var cupsSupply int = 9
 var moneySupply int = 550
 
-func askAction() string {
+/*func askAction() string {
 	fmt.Println("Write action (buy, fill, take, remaining, exit):")
 	var action string
 	fmt.Scan(&action)
 	return action
-}
+}*/
 
 func remaining() {
 	fmt.Println("The coffee machine has:")
@@ -108,7 +108,43 @@ func fill() {
 	cupsSupply = cupsSupply + c
 }
 
+func take() {
+	fmt.Println("I gave you", moneySupply, "$")
+	moneySupply = 0
+}
+
 func main() {
+	for {
+		fmt.Println("\nCommands:")
+		fmt.Println("1. Buy")
+		fmt.Println("2. Fill")
+		fmt.Println("3. Take")
+		fmt.Println("4. Remaining")
+		fmt.Println("5. Exit")
+		fmt.Print("Enter command number: ")
+
+		var command int
+		fmt.Scan(&command)
+
+		switch command {
+		case 1:
+			buy()
+		case 2:
+			fill()
+		case 3:
+			take()
+		case 4:
+			remaining()
+		case 5:
+			fmt.Println("Exiting...")
+			return
+		default:
+			fmt.Println("Invalid command, please try again")
+		}
+	}
+}
+
+/*func main() {
 
 Loop:
 	for {
@@ -136,4 +172,4 @@ Loop:
 			fmt.Println("Not a valid action")
 		}
 	}
-}
+}*/
