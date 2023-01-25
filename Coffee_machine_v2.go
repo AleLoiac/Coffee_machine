@@ -43,6 +43,14 @@ func checkResources(w int, m int, b int, c int) bool {
 	return true
 }
 
+func updateResources(water int, milk int, coffee int, cups int, money int) {
+	waterSupply -= water
+	milkSupply -= milk
+	coffeeSupply -= coffee
+	cupsSupply -= cups
+	moneySupply += money
+}
+
 func buy() {
 
 	fmt.Println("What do you want to buy? 1 - espresso, 2 - latte, 3 - cappuccino, back - to main menu:")
@@ -50,22 +58,11 @@ func buy() {
 	fmt.Scan(&productCode)
 
 	if productCode == "1" && checkResources(250, 0, 16, 1) {
-		waterSupply -= 250
-		coffeeSupply -= 16
-		cupsSupply--
-		moneySupply += 4
+		updateResources(250, 0, 16, 1, 4)
 	} else if productCode == "2" && checkResources(350, 75, 20, 1) {
-		waterSupply -= 350
-		milkSupply -= 75
-		coffeeSupply -= 20
-		cupsSupply--
-		moneySupply += 7
+		updateResources(350, 75, 20, 1, 7)
 	} else if productCode == "3" && checkResources(200, 100, 12, 1) {
-		waterSupply -= 200
-		milkSupply -= 100
-		coffeeSupply -= 12
-		cupsSupply--
-		moneySupply += 6
+		updateResources(200, 100, 12, 1, 6)
 	}
 }
 
