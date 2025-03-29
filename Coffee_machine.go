@@ -34,7 +34,7 @@ func remaining() {
 	fmt.Println(milkSupply, "ml of milk")
 	fmt.Println(coffeeSupply, "g of coffee beans")
 	fmt.Println(cupsSupply, "disposable cups")
-	fmt.Println("$", moneySupply, "of money")
+	fmt.Println("$", moneySupply, "dollars")
 }
 
 func checkResources(w int, m int, b int, c int) bool {
@@ -109,8 +109,12 @@ func fill() {
 }
 
 func take() {
-	fmt.Println("I gave you", moneySupply, "$")
-	moneySupply = 0
+	if moneySupply == 0 {
+		fmt.Println("No money to withdraw")
+	} else {
+		fmt.Println("I gave you", moneySupply, "$")
+		moneySupply = 0
+	}
 }
 
 func main() {
